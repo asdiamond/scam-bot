@@ -36,6 +36,10 @@ pairs = (
       f"\nto the latest microcode to ensure your security",
       f"\nThis is the {system} help desk.")
      ),
+    (r'My (.*) is not a (.*) it is a (.*)',
+     ("This is the %3 help desk",
+      "Yes sir, we can help with your %3 system")
+     )
 
 )
 
