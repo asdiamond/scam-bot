@@ -27,29 +27,46 @@ distFull = f"{dist[0]} {dist[2]}" if dist else None
 name = "bobert"
 
 pairs = (
-
     (r'Who is this',
      (f"I'm {name} calling from the {system} help desk.",
       f"\nHello, I'm {name} from the {system} help desk. We have"
       f"\ndetected errors in your {processor} {architecture} processor's"
-      f"\nmicrocode. We need to update your {node} {distFull} machine " # FIXME distFull is None on windows.
+      f"\nmicrocode. We need to update your {node} {distFull} machine "  # FIXME distFull is None on windows.
       f"\nto the latest microcode to ensure your security",
-      f"\nThis is the {system} help desk.")
-     ),
+      f"\nThis is the {system} help desk.")),
+
+    (r'Where (.*)',
+     (f"I'm {name} calling from the {system} help desk.",
+      f"I'm {name}",
+      # f"Jesus, I have already told you I am {name}!!",
+      f"Yes yes, the {system} help desk")),
+
+    (r'what is wrong',
+     (f"we need to upgrade your {node} {distFull} machine because of a microcode error.",
+      f"there is a serious error in your {node} {distFull} computer's processor",
+      f"you need to let us update your computer")),
+
     (r'My (.*) is not a (.*) it is a (.*)',
      ("This is the %3 help desk",
-      "Yes sir, we can help with your %3 system")
-     )
+      "Yes sir, we can help with your %3 system")),
 
+    (r"(.*) dont know (.*)",
+        (f"")),
+
+    (r'(.*) why (.*)',
+     (f"Im sorry sir, we need to install a microcode update for your security",
+      f"for your security!!"))
 )
-
 
 tech_support = Chat(pairs, reflections)
 
 
 def main():
-    print("Tech support\n-----------")
-    print("Enter quit when done.")
+    print(f"\nHello, I'm {name} from the {system} help desk. We have"
+          f"\ndetected errors in your {processor} {architecture} processor's"
+          f"\nmicrocode. We need to update your {node} {distFull} machine "  # FIXME distFull is None on windows.
+          f"\nto the latest microcode to ensure your security")
+    print("Tech support\n--------------------------------------------")
     tech_support.converse()
 
 
