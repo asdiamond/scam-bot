@@ -48,11 +48,18 @@ pairs = (
       "Yes sir, we can help with your %1 system")),
 
     (r"(.*)don'?t know(.*)",
-        (f"")),
+     (f"")),
 
     (r'(.*)why(.*)',
      (f"Im sorry sir, we need to install a microcode update for your security",
       f"for your security!!")),
+
+    (r'.*',
+     (f"I'm sorry. I can't understand what you're saying.",
+      f"I can't understand.",
+      f"Your computer needs support.",
+      f"This is so important for your security.",
+      f"Your computer needs an update for security."))
 )
 
 # Create our bot
