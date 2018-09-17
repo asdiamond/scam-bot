@@ -32,13 +32,13 @@ pairs = (
       f"\nto the latest microcode to ensure your security",
       f"This is the {system} help desk.")),
 
-    (r'where(.*)',
+    (r'.*where.*',
      (f"I'm {botName} calling from the {system} help desk.",
       f"I'm {botName}",
       # f"Jesus, I have already told you I am {name}!!",
       f"Yes yes, the {system} help desk")),
 
-    (r'what(.*is.*wrong)?',
+    (r'.*what(.*is.*wrong)?',
      (f"we need to upgrade your {node} {distFull} machine because of a microcode error.",
       f"there is a serious error in your {node} {distFull} computer's processor",
       f"you need to let us update your computer")),
@@ -47,10 +47,11 @@ pairs = (
      ("This is the %1 help desk",
       "Yes sir, we can help with your %1 system")),
 
-    (r"(.*)don'?t know(.*)",
-     (f"")),
+    (r".*don'?t know.*",
+     (f"I am being very clear.",
+      f"What don't you know.")),
 
-    (r'(.*)why(.*)',
+    (r'.*why.*',
      (f"Im sorry sir, we need to install a microcode update for your security",
       f"for your security!!")),
 
