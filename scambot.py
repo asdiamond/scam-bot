@@ -24,33 +24,35 @@ distFull = f"{dist[0]} {dist[2]}" if dist else None # FIXME distFull is None on 
 # A table of response pairs, where each pair consists of a regular expression,
 # and a list of possible responses, with group-macros labelled as %1, %2.
 pairs = (
+    (r'who.*(((is)?.*this)|((are)?.*you))?',
      (f"I'm {botName} calling from the {system} help desk.",
       f"Hello, I'm {botName} from the {system} help desk. We have"
       f"\ndetected errors in your {processor} {architecture} processor's"
       f"\nmicrocode. We need to update your {node} {distFull} machine "
       f"\nto the latest microcode to ensure your security",
-      f"\nThis is the {system} help desk.")),
+      f"This is the {system} help desk.")),
 
+    (r'where(.*)',
      (f"I'm {botName} calling from the {system} help desk.",
       f"I'm {botName}",
       # f"Jesus, I have already told you I am {name}!!",
       f"Yes yes, the {system} help desk")),
 
-    (r'what is wrong',
+    (r'what(.*is.*wrong)?',
      (f"we need to upgrade your {node} {distFull} machine because of a microcode error.",
       f"there is a serious error in your {node} {distFull} computer's processor",
       f"you need to let us update your computer")),
 
-    (r'My (.*) is not a (.*) it is a (.*)',
-     ("This is the %3 help desk",
-      "Yes sir, we can help with your %3 system")),
+    (r'(?:my)|(?:this) (?:.*) is not a (?:.*) it is a (.*)',
+     ("This is the %1 help desk",
+      "Yes sir, we can help with your %1 system")),
 
-    (r"(.*) dont know (.*)",
+    (r"(.*)don'?t know(.*)",
         (f"")),
 
-    (r'(.*) why (.*)',
+    (r'(.*)why(.*)',
      (f"Im sorry sir, we need to install a microcode update for your security",
-      f"for your security!!"))
+      f"for your security!!")),
 )
 
 # Create our bot
