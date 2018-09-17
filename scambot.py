@@ -1,37 +1,34 @@
 #!/usr/bin/env python3
 
-# A tech support scammer bot
+# Scambot is a tech support scammer bot.
 # Authors: asdiamond, eseymour
-# for liscence information see LICENSE
-# a translation table used to convert
-# things you say into things the computer
-# says back, e.g. "I am" -> "you are"
-#
-# Inspired by the chatbot demos in nltk
+# For license information see LICENSE.
 
 import platform, re, nltk
 
+# reflections is a translation table used to convert things you say into things
+# the computer says back, e.g. "I am" -> "you are".
 from nltk.chat.util import Chat, reflections
 
+# Inspired by the chatbot demos in nltk
+
+# A series of variables used by Scambot's responses
+name = "Botbert"
 system = platform.system()
 processor = platform.processor()
 architecture = platform.architecture()[0]
 node = platform.node()
 dist = platform.dist() if system == 'Linux' else None
-distFull = f"{dist[0]} {dist[2]}" if dist else None
+distFull = f"{dist[0]} {dist[2]}" if dist else None # FIXME distFull is None on windows.
 
-# a table of response pairs, where each pair consists of a
-# regular expression, and a list of possible responses,
-# with group-macros labelled as %1, %2.
-
-name = "Botbert"
-
+# A table of response pairs, where each pair consists of a regular expression,
+# and a list of possible responses, with group-macros labelled as %1, %2.
 pairs = (
     (r'Who is this',
      (f"I'm {name} calling from the {system} help desk.",
       f"\nHello, I'm {name} from the {system} help desk. We have"
       f"\ndetected errors in your {processor} {architecture} processor's"
-      f"\nmicrocode. We need to update your {node} {distFull} machine "  # FIXME distFull is None on windows.
+      f"\nmicrocode. We need to update your {node} {distFull} machine "
       f"\nto the latest microcode to ensure your security",
       f"\nThis is the {system} help desk.")),
 
@@ -58,6 +55,7 @@ pairs = (
       f"for your security!!"))
 )
 
+# Create our bot
 tech_support = Chat(pairs, reflections)
 
 
