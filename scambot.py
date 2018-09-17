@@ -24,7 +24,7 @@ distFull = f"{dist[0]} {dist[2]}" if dist else None
 # regular expression, and a list of possible responses,
 # with group-macros labelled as %1, %2.
 
-name = "bobert"
+name = "Botbert"
 
 pairs = (
     (r'Who is this',
