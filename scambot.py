@@ -13,7 +13,7 @@ from nltk.chat.util import Chat, reflections
 # Inspired by the chatbot demos in nltk
 
 # A series of variables used by Scambot's responses
-name = "Botbert"
+botName = "Botbert"
 system = platform.system()
 processor = platform.processor()
 architecture = platform.architecture()[0]
@@ -24,17 +24,15 @@ distFull = f"{dist[0]} {dist[2]}" if dist else None # FIXME distFull is None on 
 # A table of response pairs, where each pair consists of a regular expression,
 # and a list of possible responses, with group-macros labelled as %1, %2.
 pairs = (
-    (r'who.*((is)?.*this)|((are)?.*you)',
-     (f"I'm {name} calling from the {system} help desk.",
-      f"\nHello, I'm {name} from the {system} help desk. We have"
+     (f"I'm {botName} calling from the {system} help desk.",
+      f"Hello, I'm {botName} from the {system} help desk. We have"
       f"\ndetected errors in your {processor} {architecture} processor's"
       f"\nmicrocode. We need to update your {node} {distFull} machine "
       f"\nto the latest microcode to ensure your security",
       f"\nThis is the {system} help desk.")),
 
-    (r'Where (.*)',
-     (f"I'm {name} calling from the {system} help desk.",
-      f"I'm {name}",
+     (f"I'm {botName} calling from the {system} help desk.",
+      f"I'm {botName}",
       # f"Jesus, I have already told you I am {name}!!",
       f"Yes yes, the {system} help desk")),
 
@@ -60,11 +58,12 @@ tech_support = Chat(pairs, reflections)
 
 
 def main():
-    print(f"\nHello, I'm {name} from the {system} help desk. We have"
-          f"\ndetected errors in your {processor} {architecture} processor's"
-          f"\nmicrocode. We need to update your {node} {distFull} machine "  # FIXME distFull is None on windows.
-          f"\nto the latest microcode to ensure your security")
-    print("Tech support\n--------------------------------------------")
+    print("Welcome to your tech support chat. This conversation is not monitored.",
+          'Please speak in plain English. Enter "quit" when done.',
+          "======================================================================",
+          f"Hello, I'm {botName} from the {system} help desk. We have detected",
+          "errors in your computer.",
+          sep='\n')
     tech_support.converse()
 
 
