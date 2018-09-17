@@ -24,7 +24,7 @@ distFull = f"{dist[0]} {dist[2]}" if dist else None # FIXME distFull is None on 
 # A table of response pairs, where each pair consists of a regular expression,
 # and a list of possible responses, with group-macros labelled as %1, %2.
 pairs = (
-    (r'Who is this',
+    (r'who.*((is)?.*this)|((are)?.*you)',
      (f"I'm {name} calling from the {system} help desk.",
       f"\nHello, I'm {name} from the {system} help desk. We have"
       f"\ndetected errors in your {processor} {architecture} processor's"
