@@ -29,31 +29,31 @@ pairs = (
       f"Hello, I'm {botName} from the {system} help desk. We have"
       f"\ndetected errors in your {processor} {architecture} processor's"
       f"\nmicrocode. We need to update your {node} {distFull} machine "
-      f"\nto the latest microcode to ensure your security",
+      f"\nto the latest microcode to ensure your security.",
       f"This is the {system} help desk.")),
 
     (r'.*where.*',
      (f"I'm {botName} calling from the {system} help desk.",
-      f"I'm {botName}",
+      f"I'm {botName}.",
       # f"Jesus, I have already told you I am {name}!!",
-      f"Yes yes, the {system} help desk")),
+      f"Yes yes, the {system} help desk.")),
 
     (r'.*what(.*is.*wrong)?',
-     (f"we need to upgrade your {node} {distFull} machine because of a microcode error.",
-      f"there is a serious error in your {node} {distFull} computer's processor",
-      f"you need to let us update your computer")),
+     (f"We need to upgrade your {node} {distFull} machine because of a microcode error.",
+      f"There is a serious error in your {node} {distFull} computer's processor.",
+      f"You need to let us update your computer.")),
 
     (r'(?:my)|(?:this) (?:.*) is not a (?:.*) it is a (.*)',
-     ("This is the %1 help desk",
-      "Yes sir, we can help with your %1 system")),
+     ("This is the %1 help desk.",
+      "Yes sir, we can help with your %1 system.")),
 
     (r".*don'?t know.*",
-     (f"I am being very clear.",
-      f"What don't you know.")),
+     (f"I am being very clear. Your microcode is full of errors.",
+      f"What don't you know?")),
 
     (r'.*why.*',
-     (f"Im sorry sir, we need to install a microcode update for your security",
-      f"for your security!!")),
+     (f"I'm sorry sir, we need to install a microcode update for your security",
+      f"It's for your security!!")),
 
     (r'quit',
      ("This is very serious, your computer is in trouble.",
