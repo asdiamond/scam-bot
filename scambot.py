@@ -55,6 +55,11 @@ pairs = (
      (f"Im sorry sir, we need to install a microcode update for your security",
       f"for your security!!")),
 
+    (r'quit',
+     ("This is very serious, your computer is in trouble.",
+      "The errors will make your computer unusable.",
+      "Your computer needs to be more secure!")),
+
     (r'.*',
      (f"I'm sorry. I can't understand what you're saying.",
       f"I can't understand.",
